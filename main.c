@@ -9,4 +9,6 @@ int	main(void)
 	// {
 	// 	printf("%c (%d): %c\n", i, i, ft_tolower(i));
 	// }
+	char s[] = "hello world";
+	char *r = ft_strchr(s, 'h');
 }
