@@ -1,6 +1,6 @@
 CC		=	gcc
 # FLAGS	=	-Wall -Werror -Wextra
-FLAGS	= 
+FLAGS	= -Wall
 
 NAME	=	libft.a
 # TODO : compile a library with ar
