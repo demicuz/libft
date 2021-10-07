@@ -1,12 +1,14 @@
-int	ft_strlen(char *str)
+#include <stdlib.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int	l;
+	size_t	l;
 
 	l = 0;
-	while (*str)
+	while (*s)
 	{
 		l++;
-		str++;
+		s++;
 	}
 	return (l);
 }
