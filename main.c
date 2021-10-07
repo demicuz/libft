@@ -3,6 +3,8 @@
 #include <string.h> // TODO
 #include "libft.h"
 
+// TODO remove .gitignore
+
 int	main(void)
 {
 	// for (int i = 0; i < 128; ++i)
