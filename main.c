@@ -7,10 +7,5 @@
 
 int	main(void)
 {
-	// for (int i = 0; i < 128; ++i)
-	// {
-	// 	printf("%c (%d): %c\n", i, i, ft_tolower(i));
-	// }
-	char s[] = "hello world";
-	char *r = ft_strchr(s, 'h');
+	
 }
