@@ -10,7 +10,8 @@ char	*ft_strchr(const char *s, int c)
 	else
 		return (NULL);
 }
-
+// #include <stdio.h>
+// #include <string.h>
 // int main(void)
 // {
 // 	char s[] = "hello world";
