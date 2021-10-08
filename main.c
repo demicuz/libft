@@ -16,7 +16,7 @@ int	main(void)
 		printf("%c", dest[i]);
 	}
 	puts("");
-	printf("strlcpy: %d\n", r);
+	printf("strlcat: %d\n", r);
 
 	char dest2[20] = "hello";
 	char src2[] = " world world world world world world world world world";
@@ -27,5 +27,5 @@ int	main(void)
 		printf("%c", dest2[i]);
 	}
 	puts("");
-	printf("ft_strlcpy: %d\n", r2);
+	printf("ft_strlcat: %d\n", r2);
 }
