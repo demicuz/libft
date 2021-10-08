@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include <libft.h>
 
-// return (ft_strlen(src_start) + dstsize)
-
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t		n;
@@ -17,7 +15,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	if (n > 0)
 	{
-		while (n + 1 && *src)
+		while (n - 1 && *src)
 		{
 			*dst = *src;
 			dst++;
@@ -26,5 +24,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 		}
 		*dst = '\0';
 	}
-	return (ft_strlen(src_start) + dstsize);
+	return (ft_strlen(src) + dstsize - n);
 }
