@@ -5,15 +5,6 @@
 
 // TODO remove .gitignore
 
-// hhhlo
-
-// hhelo
-
-// hello 
-//  ^     - dest
-// hello 
-// ^      - src
-// 2
 int	main(void)
 {
 	char text[] = "hello         ";
