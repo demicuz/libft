@@ -5,15 +5,9 @@
 // useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
 int	main(void)
 {
-	char text[] = "hello         ";
-	char *d = text + 1;
-	char *s = text;
+	char name[2];
+	char p[] = "hello world";
+	strlcpy(name, p, (size_t) 2);
 
-	// char *r = ft_memmove(d, s, 2);
-	char *r = ft_memcpy(NULL, NULL, 3);
-
-	if (r)
-		printf("%s\n", r);
-	else
-		puts("nullptr");
+	printf("%s\n", name);
 }
