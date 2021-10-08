@@ -6,7 +6,7 @@
 int	main(void)
 {
 	char dest[20] = "hello";
-	char src[] = " world";
+	char src[] = " world world world world world world world world world";
 	// strcpy(dest, src);
 	int r = strlcat(dest, src, 20);
 	// strncpy(dest, src, 2);
@@ -19,8 +19,8 @@ int	main(void)
 	printf("strlcpy: %d\n", r);
 
 	char dest2[20] = "hello";
-	char src2[] = " world";
-	int r2 = ft_strlcpy(dest2, src2, 2);
+	char src2[] = " world world world world world world world world world";
+	int r2 = ft_strlcat(dest2, src2, 20);
 
 	for (int i = 0; i < 20; i++)
 	{
