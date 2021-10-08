@@ -3,8 +3,6 @@
 #include <string.h> // TODO
 #include "libft.h"
 
-// TODO remove .gitignore
-
 int	main(void)
 {
 	char text[] = "hello         ";
