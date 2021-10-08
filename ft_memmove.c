@@ -1,38 +1,39 @@
 #include <stdlib.h>
 
-static void	*ft_memcpy(void *dest, const void *src, size_t n)
+static void	*ft_just_cpy(void *dest, const void *src, size_t n)
 {
-	char *d;
-	char *s;
-
-	d = dest;
-	s = (char *)src;
-	while (n)
-	{
-		*d = *s;
-		d++;
-		s++;
-		n--;
-	}
-	return (dest);
+	return (NULL);
 }
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char *d;
-	char *s;
+	char	*d;
+	char	*s;
 
-	d = dest;
-	s = (char *) src;
-	if (src < dest)
+	if (!dest && !src)
+		return (NULL);
+	else if (dest != src)
 	{
-		while (n)
+		d = dest;
+		s = (char *) src;
+		if (src < dest)
 		{
-			n--;
-			d[n] = s[n];
+			while (n)
+			{
+				n--;
+				d[n] = s[n];
+			}
+		}
+		else
+		{
+			while (n)
+			{
+				*d = *s;
+				d++;
+				s++;
+				n--;
+			}
 		}
 	}
-	else
-		ft_memcpy(dest, src, n);
 	return (dest);
 }

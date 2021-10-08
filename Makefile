@@ -19,7 +19,7 @@ RM		=	rm -rf
 all:	$(NAME)
 
 $(NAME):	$(O)
-	ar rcs $(NAME) $(O)
+	@ar rcs $(NAME) $(O)
 
 launch:		$(O)
 	@$(CC) $(FLAGS) -o $(NAME) $(O)
