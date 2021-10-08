@@ -5,18 +5,22 @@
 
 // TODO remove .gitignore
 
+// hhhlo
+
+// hhelo
+
 // hello 
-// ^      - dest
+//  ^     - dest
 // hello 
-//  ^     - src
+// ^      - src
 // 2
 int	main(void)
 {
-	char text[] = "hello";
-	char *d = text;
-	char *s = text + 1;
+	char text[] = "hello         ";
+	char *d = text + 1;
+	char *s = text;
 
-	char *r = memcpy(d, s, 2);
+	char *r = ft_memmove(d, s, 2);
 
-	printf("%s\n", text);
+	printf("%s\n", r);
 }
