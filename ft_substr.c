@@ -55,5 +55,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub = malloc(sub_len + 1);
 	if (!sub)
 		return (NULL);
-	return (ft_strncpy(sub, s + start, sub_len));
+	return (ft_strncpy(sub, s + start, sub_len + 1)); // TODO smth is wrong here
 }
