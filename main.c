@@ -17,12 +17,11 @@
 // useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
 int	main(void)
 {
-	char s[] = "tripouille";
-	char *r = ft_substr(s, 1, 1);
-
+	char s1[] = "hello";
+	char s2[] = "";
+	char *r = ft_strjoin(s1, s2);
 	if (r)
 		printf("%s\n", r);
 	else
 		puts("nullptr");
-	printf("%d\n", ft_strlen(r));
 }

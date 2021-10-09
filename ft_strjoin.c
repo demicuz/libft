@@ -13,37 +13,34 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static size_t min(size_t a, size_t b)
+static char	*ft_strcpy_end(char *dest, const char *src) // TODO this is a bonus
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
+	while (*src)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+	}
+	return (dest);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t	s_len;
-	size_t	sub_len;
-	char	*sub;
+	size_t	len;
+	char	*r;
 	char	*p;
 
-	s_len = ft_strlen(s);
-	if (s_len <= start)
-		return ft_strdup("");
-	sub_len = min(len, s_len - start);
-	sub = malloc(sizeof(char) * (sub_len + 1));
-	if (!sub)
+	len = ft_strlen(s1) + ft_strlen(s2);
+	r = malloc(sizeof(char) * (len + 1));
+	if (!r)
 		return (NULL);
-	p = sub;
-	s += start;
-	while (sub_len)
+	p = ft_strcpy_end(r, s1);
+	while (*s2)
 	{
-		*p = *s;
+		*p = *s2;
 		p++;
-		s++;
-		sub_len--;
+		s2++;
 	}
 	*p = '\0';
-	return (sub);
+	return (r);
 }
