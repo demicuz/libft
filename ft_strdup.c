@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src) // TODO this is a bonus
 {
 	char	*temp;
 

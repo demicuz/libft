@@ -13,8 +13,6 @@
 #include <stdlib.h>
 #include "libft.h"
 
-// TODO dunno if this actually works
-
 static int	ft_compare(const char *str, const char *to_find)
 {
 	while (*str && *to_find)

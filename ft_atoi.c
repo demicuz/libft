@@ -19,11 +19,6 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-// static int	ft_char_to_int(char c)
-// {
-// 	return ((int) (c - '0'));
-// }
-
 int	ft_atoi(const char *str)
 {
 	int	result;
