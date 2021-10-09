@@ -13,9 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-// TODO dunno if actually works
-
-char	*ft_strcpy(char *dest, const char *src)
+static char	*ft_strcpy(char *dest, const char *src)
 {
 	char	*temp;
 

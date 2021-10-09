@@ -17,15 +17,13 @@
 // useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
 int	main(void)
 {
-	char s1[] = "hello";
-	char s2[] = "world";
+	char haystack[] = "hello world";
+	char needle[] = "h";
 
-	int r = ft_memcmp(s1, s2, 0);
+	char *r = ft_strnstr(haystack, needle, 1);
 
-	printf("%d\n", r);
-
-	// if (p)
-	// 	printf("%p: %c\n", p, *p);
-	// else
-	// 	puts("nullptr");
+	if (r)
+		printf("%s\n", r);
+	else
+		puts("Not found");
 }

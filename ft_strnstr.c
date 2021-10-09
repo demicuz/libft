@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 // TODO dunno if this actually works
 
@@ -28,6 +29,9 @@ static int	ft_compare(const char *str, const char *to_find)
 
 char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
+	size_t	little_len;
+
+	little_len = ft_strlen(little);
 	if (n == 0)
 		return (NULL);
 	while (*big && n - 1)

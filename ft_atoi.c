@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO dunno if it actually works
-
 static int	ft_isspace(char c)
 {
 	if (c == '\t' || c == '\n' || c == '\v')
@@ -21,10 +19,10 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-static int	ft_char_to_int(char c)
-{
-	return ((int) (c - '0'));
-}
+// static int	ft_char_to_int(char c)
+// {
+// 	return ((int) (c - '0'));
+// }
 
 int	ft_atoi(const char *str)
 {
@@ -44,7 +42,7 @@ int	ft_atoi(const char *str)
 	while (*str >= '0' && *str <= '9')
 	{
 		result *= 10;
-		result += ft_char_to_int(*str) * sign;
+		result += (*str - '0') * sign;
 		str++;
 	}
 	return (result);

@@ -11,17 +11,27 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-// TODO
-void	*ft_calloc(size_t nmemb, size_t size)
+
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*p;
+	char	*p;
+	void	*r;
+	size_t	n;
 
-	p = malloc(nmemb * size);
-	if (!p)
+	r = malloc(count * size);
+	if (!r)
 		return (NULL);
-	while (size)
+	p = r;
+	while (count)
 	{
-
+		n = size;
+		while (n)
+		{
+			*p = '\0';
+			p++;
+			n--;
+		}
+		count--;
 	}
-	return (NULL);
+	return(r);
 }
