@@ -14,8 +14,10 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	const char	*p = s;
+	const char	*p;
 
+	c &= 0b11111111;
+	p = s;
 	while (*p)
 		p++;
 	while (*p != c && p != s)
