@@ -24,10 +24,4 @@ int	main(void)
 		printf("%s\n", r);
 	else
 		puts("nullptr");
-
-	char *r2 = ft_strchr("tripouille", 't' + 256);
-	if (r2)
-		printf("%s\n", r2);
-	else
-		puts("nullptr");
 }

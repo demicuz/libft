@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_strlen(s);
 	if (s_len < start) // TODO off by one
-		return (NULL); // TODO maybe return "\0"?
+		return ft_strdup("");
 	sub = malloc(min(len, s_len - start) + 1);
 	if (!sub)
 		return (NULL);
