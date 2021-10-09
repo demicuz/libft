@@ -21,17 +21,39 @@ static size_t min(size_t a, size_t b)
 		return (b);
 }
 
+// TODO this is a bonus
+static char	*ft_strncpy(char *dest, const char *src, size_t n)
+{
+	char	*temp;
+
+	temp = dest;
+	while (*src && n)
+	{
+		*dest = *src;
+		dest++;
+		src++;
+		n--;
+	}
+	while (n)
+	{
+		*dest = '\0';
+		n--;
+	}
+	return (temp);
+}
+
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
+	size_t	sub_len;
 	char	*sub;
 
 	s_len = ft_strlen(s);
-	if (s_len < start) // TODO off by one
+	if (s_len <= start)
 		return ft_strdup("");
-	sub = malloc(min(len, s_len - start) + 1);
+	sub_len = min(len, s_len - start);
+	sub = malloc(sub_len + 1);
 	if (!sub)
 		return (NULL);
-
-	return (NULL);
+	return (ft_strncpy(sub, s + start, sub_len));
 }
