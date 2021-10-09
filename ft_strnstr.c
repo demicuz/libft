@@ -31,10 +31,13 @@ char	*ft_strnstr(const char *big, const char *little, size_t n)
 {
 	size_t	little_len;
 
-	little_len = ft_strlen(little);
+	
+	if (*little == '\0')
+		return ((char *) big);
 	if (n == 0)
 		return (NULL);
-	while (*big && n - 1)
+	little_len = ft_strlen(little);
+	while (*big && n > little_len - 1)
 	{
 		if (ft_compare(big, little))
 			return ((char *) big);

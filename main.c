@@ -18,9 +18,9 @@
 int	main(void)
 {
 	char haystack[] = "hello world";
-	char needle[] = "h";
+	char needle[] = "";
 
-	char *r = ft_strnstr(haystack, needle, 1);
+	char *r = ft_strnstr(haystack, needle, 0);
 
 	if (r)
 		printf("%s\n", r);
