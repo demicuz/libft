@@ -3,25 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psharen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 18:19:57 by psharen           #+#    #+#             */
-/*   Updated: 2021/10/09 18:20:10 by psharen          ###   ########.fr       */
+/*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
+/*   Updated: 2000/01/01 20:20:20 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> // TODO
-#include <ctype.h> // TODO
-#include <string.h> // TODO
+#include <stdlib.h>
 #include "libft.h"
-// useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
-int	main(void)
-{
-	char s[] = "hello world";
-	char *r = ft_substr(s, 0, 2);
 
-	if (r)
-		printf("%s\n", r);
+static size_t min(size_t a, size_t b)
+{
+	if (a < b)
+		return (a);
 	else
-		puts("nullptr");
+		return (b);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	s_len;
+	char	*sub;
+
+	s_len = ft_strlen(s);
+	if (s_len < start) // TODO off by one
+		return (NULL); // TODO maybe return "\0"?
+	sub = malloc(min(len, s_len - start) + 1);
+	if (!sub)
+		return (NULL);
+
+	return (NULL);
 }
