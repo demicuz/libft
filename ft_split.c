@@ -12,7 +12,6 @@
 
 #include <stdlib.h>
 
-
 static size_t	ft_count_words(char const *s, char c)
 {
 	size_t	words;
@@ -36,6 +35,26 @@ static size_t	ft_count_words(char const *s, char c)
 	return (words);
 }
 
+static char	*ft_strndup_simple(const char *src, size_t len)
+{
+	char	*result;
+	char	*p;
+
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	p = result;
+	while (len)
+	{
+		*p = *src;
+		p++;
+		src++;
+		len--;
+	}
+	*p = '\0';
+	return (result);
+}
+
 // __hello__world__
 char	**ft_split(char const *s, char c)
 {
@@ -44,10 +63,12 @@ char	**ft_split(char const *s, char c)
 
 	word_count = ft_count_words(s, c);
 	result = malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
 	while (word_count)
 	{//TODO
-		s = do_stuff;
+		s = ft_;
 		word_count--;
 	}
-	return (result);
+	return (result - word_count);
 }
