@@ -15,6 +15,8 @@
 
 static int ft_in(char const *set, char c)
 {
+	if (!c)
+		return (0);
 	while (*set && *set != c)
 		set++;
 	return (*set == c);
@@ -26,7 +28,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char const	*start;
 	char const	*end;
 
-	while (ft_in(set, *s1))
+	while (*s1 && ft_in(set, *s1))
 		s1++;
 	len = ft_strlen(s1);
 	if (len == 0)
@@ -34,6 +36,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = s1;
 	while (*s1)
 		s1++;
+	// TODO s1[-1] shoots in the leg if s1 == ""
 	while (s1[-1] && s1 > start)
 	{
 		s1--;
