@@ -19,12 +19,7 @@
 
 int	main(void)
 {
-	char s1[] = "hello 123";
-	char set[] = "";
-	char *trimmed = ft_strtrim(s1, set);
-
-	if (trimmed)
-		printf("%s\n", trimmed);
-	else
-		puts("nullptr");
+	char s[] = "helloworld";
+	size_t r = ft_count_words(s, '_');
+	printf("%d\n", (int) r);
 }
