@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include <stdio.h>
 
 static int ft_in(char const *set, char c)
 {
@@ -22,11 +23,30 @@ static int ft_in(char const *set, char c)
 	return (*set == c);
 }
 
+static char	*ft_strndup_simple(const char *src, size_t len)
+{
+	char	*result;
+	char	*p;
+
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	p = result;
+	while (len)
+	{
+		*p = *src;
+		p++;
+		src++;
+		len--;
+	}
+	*p = '\0';
+	return (result);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t		len;
 	char const	*start;
-	char const	*end;
 
 	while (*s1 && ft_in(set, *s1))
 		s1++;
@@ -36,10 +56,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = s1;
 	while (*s1)
 		s1++;
-	// TODO s1[-1] shoots in the leg if s1 == ""
-	while (s1[-1] && s1 > start)
+	while (ft_in(set, s1[-1]) && s1 > start)
 	{
 		s1--;
+		len--;
 	}
-	// TODO
+	return (ft_strndup_simple(start, len));
 }
