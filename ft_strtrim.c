@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 static int ft_in(char const *set, char c)
 {
@@ -27,8 +28,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	while (ft_in(set, *s1))
 		s1++;
+	len = ft_strlen(s1);
+	if (len == 0)
+		return ft_strdup("");
 	start = s1;
-
 	while (*s1)
 		s1++;
 	while (s1[-1] && s1 > start)
