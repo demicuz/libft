@@ -15,19 +15,16 @@
 #include <string.h> // TODO
 #include "libft.h"
 
-int ft_in(char const *set, char c)
-{
-	if (!c)
-		return (0);
-	while (*set && *set != c)
-		set++;
-	return (*set == c);
-}
 // useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
+
 int	main(void)
 {
-	char s[] = "";
-	char c = '\0';
+	char s1[] = "hello 123";
+	char set[] = "";
+	char *trimmed = ft_strtrim(s1, set);
 
-	printf("%d\n", ft_in(s, c));
+	if (trimmed)
+		printf("%s\n", trimmed);
+	else
+		puts("nullptr");
 }
