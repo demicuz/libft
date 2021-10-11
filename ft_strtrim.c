@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
-#include <stdio.h>
 
 static int ft_in(char const *set, char c)
 {
@@ -45,21 +43,16 @@ static char	*ft_strndup_simple(const char *src, size_t len)
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t		len;
 	char const	*start;
 
 	while (*s1 && ft_in(set, *s1))
 		s1++;
-	len = ft_strlen(s1);
-	if (len == 0)
-		return ft_strdup("");
+	if (*s1 == '\0')
+		return ft_strndup_simple("", 0);
 	start = s1;
 	while (*s1)
 		s1++;
 	while (ft_in(set, s1[-1]) && s1 > start)
-	{
 		s1--;
-		len--;
-	}
-	return (ft_strndup_simple(start, len));
+	return (ft_strndup_simple(start, s1 - start));
 }
