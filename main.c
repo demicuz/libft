@@ -19,13 +19,16 @@
 
 int	main(void)
 {
-	char words[] = "hello__world__hey__";
-	char **result = ft_split(words, '_');
-	while (result && *result)
+	char s[] = "tripouille";
+	char **words = ft_split("tripouille", 0);
+	if (!words)
+		puts("nullptr");
+	else
 	{
-		printf("%s\n", *result);
-		result++;
+		while (words && *words)
+		{
+			puts(*words);
+			words++;
+		}
 	}
-	// size_t r = ft_count_words(s, '_');
-	// printf("%d\n", (int) r);
 }
