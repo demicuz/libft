@@ -19,16 +19,13 @@
 
 int	main(void)
 {
-	char s[] = "tripouille";
-	char **words = ft_split("tripouille", 0);
-	if (!words)
-		puts("nullptr");
+	char *r = ft_itoa(-2147483648);
+	if (r)
+		printf("%s\n", r);
 	else
-	{
-		while (words && *words)
-		{
-			puts(*words);
-			words++;
-		}
-	}
+		puts("nullptr");
+	// for (int i = 0; i < 128; ++i)
+	// {
+	// 	printf("%d: %c\n", i, i);
+	// }
 }

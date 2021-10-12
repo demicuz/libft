@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_strcpy_end(char *dest, const char *src) // TODO this is a bonus
+static char	*ft_strcpy_end(char *dest, const char *src)
 {
 	while (*src)
 	{

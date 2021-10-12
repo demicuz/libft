@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static size_t min(size_t a, size_t b)
+static size_t	min(size_t a, size_t b)
 {
 	if (a < b)
 		return (a);
@@ -30,7 +30,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	s_len = ft_strlen(s);
 	if (s_len <= start)
-		return ft_strdup("");
+		return (ft_strdup(""));
 	sub_len = min(len, s_len - start);
 	sub = malloc(sizeof(char) * (sub_len + 1));
 	if (!sub)

@@ -36,7 +36,7 @@ static size_t	ft_count_words(char const *s, char c)
 	return (words);
 }
 
-// absolutely wicked. moves *s, puts word in *p.
+// absolutely wicked. moves *s, puts a word in *p.
 static void	ft_put_word(char **p, char **s, char c)
 {
 	char	*word_start;
@@ -50,13 +50,13 @@ static void	ft_put_word(char **p, char **s, char c)
 	word_len = *s - word_start;
 	*p = malloc(sizeof(char) * (word_len + 1));
 	if (!*p)
-		return;
+		return ;
 	ft_strlcpy(*p, word_start, word_len + 1);
 }
 
 static void	ft_free_all(char **words)
 {
-	char **p;
+	char	**p;
 
 	p = words;
 	while (*p)
@@ -67,7 +67,8 @@ static void	ft_free_all(char **words)
 	free(words);
 }
 
-// __hello__world__ --> {"hello", "world", NULL}
+// "__hello__world__", '_' --> {"hello", "world", NULL}
+// "hello", '\0' --> {"hello", NULL}
 char	**ft_split(char const *s, char c)
 {
 	size_t	word_count;

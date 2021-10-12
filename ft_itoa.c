@@ -12,47 +12,44 @@
 
 #include <stdlib.h>
 
-static int	ft_in(char const *set, char c)
+static int	ft_count_digits(int n)
 {
-	if (!c)
-		return (0);
-	while (*set && *set != c)
-		set++;
-	return (*set == c);
+	int	count;
+
+	if (n == 0)
+		return (1);
+	count = 0;
+	while (n)
+	{
+		n /= 10;
+		count++;
+	}
+	return (count);
 }
-
-static char	*ft_strndup_simple(const char *src, size_t len)
+char	*ft_itoa(int n)
 {
+	int		n_digits;
+	int		is_negative;
+	int		i;
 	char	*result;
-	char	*p;
 
-	result = malloc(sizeof(char) * (len + 1));
+	n_digits = ft_count_digits(n);
+	is_negative = (n < 0);
+	result = malloc(sizeof(char) * (n_digits + is_negative + 1));
 	if (!result)
 		return (NULL);
-	p = result;
-	while (len)
+	result[n_digits] = '\0';
+	if (is_negative)
+		result[0] = '-';
+	i = n_digits - 1 + is_negative;
+	while (i >= is_negative)
 	{
-		*p = *src;
-		p++;
-		src++;
-		len--;
+		if (is_negative)
+			result[i] = -(n % 10) + '0';
+		else
+			result[i] = (n % 10) + '0';
+		n /= 10;
+		i--;
 	}
-	*p = '\0';
 	return (result);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char const	*start;
-
-	while (*s1 && ft_in(set, *s1))
-		s1++;
-	if (*s1 == '\0')
-		return (ft_strndup_simple("", 0));
-	start = s1;
-	while (*s1)
-		s1++;
-	while (ft_in(set, s1[-1]) && s1 > start)
-		s1--;
-	return (ft_strndup_simple(start, s1 - start));
 }
