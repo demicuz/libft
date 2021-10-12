@@ -16,7 +16,7 @@
 // Assumes *s is a valid string
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char 			*result;
+	char			*result;
 	char			*p;
 	unsigned int	i;
 
