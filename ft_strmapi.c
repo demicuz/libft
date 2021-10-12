@@ -11,47 +11,25 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-static int	ft_count_digits(int n)
+// Assumes *s is a valid string
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	count;
+	char 			*result;
+	char			*p;
+	unsigned int	i;
 
-	if (n == 0)
-		return (1);
-	count = 0;
-	while (n)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
-}
-
-// TODO somehow it crashes on Ubuntu with libftTester
-char	*ft_itoa(int n)
-{
-	int		n_digits;
-	int		is_negative;
-	int		i;
-	char	*result;
-
-	n_digits = ft_count_digits(n);
-	is_negative = (n < 0);
-	result = malloc(sizeof(char) * (n_digits + is_negative + 1));
+	result = ft_strdup(s);
 	if (!result)
 		return (NULL);
-	result[n_digits] = '\0';
-	if (is_negative)
-		result[0] = '-';
-	i = n_digits - 1 + is_negative;
-	while (i >= is_negative)
+	i = 0;
+	p = result;
+	while (*p)
 	{
-		if (is_negative)
-			result[i] = -(n % 10) + '0';
-		else
-			result[i] = (n % 10) + '0';
-		n /= 10;
-		i--;
+		*p = f(i, *p);
+		p++;
+		i++;
 	}
 	return (result);
 }
