@@ -55,20 +55,29 @@ static char	*ft_strndup_simple(const char *src, size_t len)
 	return (result);
 }
 
+// hello____
+static char	*ft_dostuff(char *c_then_word, char *result)
+{
+
+}
+
 // __hello__world__
 char	**ft_split(char const *s, char c)
 {
 	size_t	word_count;
 	char	**result;
+	char	*last_word;
 
 	word_count = ft_count_words(s, c);
 	result = malloc(sizeof(char *) * (word_count + 1));
 	if (!result)
 		return (NULL);
+	while (*s == c)
+		s++;
 	while (word_count)
-	{//TODO
-		s = ft_;
-		word_count--;
+	{
+
 	}
+	*result = (NULL);
 	return (result - word_count);
 }
