@@ -1,4 +1,5 @@
 NAME	=	libft.a
+RUNNER	=	runner
 
 CC		=	gcc
 FLAGS	=	-Wall -Werror -Wextra
@@ -20,16 +21,16 @@ H		=	libft.h
 
 RM		=	rm -rf
 
-.PHONY:	all clean fclean re
+.PHONY:	all bonus clean fclean re
 
 all bonus: $(NAME)
 
 $(NAME): $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 	ar rcs $(NAME) $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 
-# TODO maybe remove this?
-launch: $(O) $(BONUS_O)
-	$(CC) $(FLAGS) -o $(NAME) $(O) $(BONUS_O)
+# needs to have 'int main()' to be functional
+runner: $(O) $(BONUS_O)
+	$(CC) $(FLAGS) -o $(RUNNER) $(O) $(BONUS_O)
 
 %.o : %.c $(H)
 	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<))
