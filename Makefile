@@ -26,10 +26,10 @@ RM		=	rm -rf
 
 .PHONY:	all clean fclean re
 
-all:	$(NAME)
+all bonus:	$(NAME)
 
-$(NAME): $(O)
-	ar rcs $(NAME) $(O)
+$(NAME):	$(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
+		ar rcs $(NAME) $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 
 # TODO maybe remove this?
 launch: $(O) $(BONUS_O)
@@ -37,9 +37,6 @@ launch: $(O) $(BONUS_O)
 
 %.o :	%.c $(H)
 	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<)) -I $(HDIR)
-
-bonus: $(O) $(BONUS_O)
-	ar rcs $(NAME) $(O) $(BONUS_O)
 
 clean:
 	$(RM) $(O) $(BONUS_O)
