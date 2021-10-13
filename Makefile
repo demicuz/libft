@@ -13,8 +13,13 @@ S		=	ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 			ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c \
 			ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 			ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-			ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+			ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
+			main.c # TODO remove main.c
 O		=	$(S:.c=.o)
+BONUS_S	=	ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+			ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+			ft_lstclear_bonus.c
+BONUS_O	=	$(BONUS_S:.c=.o)
 H		=	libft.h
 
 RM		=	rm -rf
@@ -23,21 +28,23 @@ RM		=	rm -rf
 
 all:	$(NAME)
 
-$(NAME):	$(O)
+$(NAME): $(O)
 	ar rcs $(NAME) $(O)
 
-launch:		$(O)
-	$(CC) $(FLAGS) -o $(NAME) $(O)
+# TODO maybe remove this?
+launch: $(O) $(BONUS_O)
+	$(CC) $(FLAGS) -o $(NAME) $(O) $(BONUS_O)
 
 %.o :	%.c $(H)
 	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<)) -I $(HDIR)
 
-# TODO bonus:
+bonus: $(O) $(BONUS_O)
+	ar rcs $(NAME) $(O) $(BONUS_O)
 
 clean:
-	$(RM) $(O)
+	$(RM) $(O) $(BONUS_O)
 
-fclean:	clean
+fclean: clean
 	$(RM) $(NAME)
 
-re:	fclean all
+re: fclean all

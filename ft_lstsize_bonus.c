@@ -3,36 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psharen <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/09 18:19:57 by psharen           #+#    #+#             */
-/*   Updated: 2021/10/09 18:20:10 by psharen          ###   ########.fr       */
+/*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
+/*   Updated: 2000/01/01 20:20:20 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO check for memory leaks
-
-#include <stdio.h> // TODO
-#include <ctype.h> // TODO
-#include <string.h> // TODO
 #include "libft.h"
 
-// useful: https://opensource.apple.com/source/network_cmds/network_cmds-481.20.1/unbound/compat/memmove.c.auto.html
-
-void	ft_print_list(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
+	int	size;
+
 	if (!lst)
-		return;
-	while (lst)
+		return (0);
+	size = 1;
+	while (lst->next)
 	{
-		printf("%s\n", lst->content);
 		lst = lst->next;
+		size++;
 	}
-}
-
-int	main(void)
-{
-	t_list *lst = NULL;
-	ft_lstadd_back(&lst, ft_lstnew((void *) "hello"));
-	ft_print_list(lst);
+	return (size);
 }
