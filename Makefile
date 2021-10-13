@@ -29,19 +29,19 @@ RM		=	rm -rf
 all bonus:	$(NAME)
 
 $(NAME):	$(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
-		ar rcs $(NAME) $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
+	@ar rcs $(NAME) $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 
 # TODO maybe remove this?
 launch: $(O) $(BONUS_O)
-	$(CC) $(FLAGS) -o $(NAME) $(O) $(BONUS_O)
+	@$(CC) $(FLAGS) -o $(NAME) $(O) $(BONUS_O)
 
 %.o :	%.c $(H)
-	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<)) -I $(HDIR)
+	@$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<)) -I $(HDIR)
 
 clean:
-	$(RM) $(O) $(BONUS_O)
+	@$(RM) $(O) $(BONUS_O)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

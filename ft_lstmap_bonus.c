@@ -10,23 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+// We won't ever know if f() has succeeded or not. E.g. if it returns NULL,
+// we will create a list with content == NULL and that's like... Fine.
+// Also the original list is not protected from the side effects of f().
+// We can change the original content with it. That's a bad thing.
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*prev;
+	t_list *new_list;
 
-	current = *lst;
-	prev = current;
-	while (current)
-	{
-		if (current->content)
-			del(current->content);
-		current = current->next;
-		free(prev);
-		prev = current;
-	}
-	*lst = NULL;
+	if (!lst)
+		return (NULL);
+
+	new_list = ft_lstnew(f(lst->content));
+
+	return (new_list);
 }

@@ -25,14 +25,25 @@ void	ft_print_list(t_list *lst)
 		return;
 	while (lst)
 	{
-		printf("%s\n", lst->content);
+		printf("%s\n", (char *)lst->content);
 		lst = lst->next;
 	}
+}
+
+void	*ft_transform_content(void *content)
+{
+	char *new_content = ft_strdup(content);
+	if (*new_content)
+		*new_content = 'w';
+	return new_content;
 }
 
 int	main(void)
 {
 	t_list *lst = NULL;
-	ft_lstadd_back(&lst, ft_lstnew((void *) "hello"));
+	ft_lstadd_back(&lst, ft_lstnew("hello"));
+	ft_lstadd_back(&lst, ft_lstnew("world"));
+	ft_lstadd_back(&lst, ft_lstnew("another"));
+	ft_lstadd_back(&lst, ft_lstnew("element"));
 	ft_print_list(lst);
 }
