@@ -1,5 +1,5 @@
 NAME	=	libft.a
-RUNNER	=	runner
+# RUNNER	=	runner
 
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
@@ -29,8 +29,8 @@ $(NAME): $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 	ar rcs $(NAME) $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 
 # needs to have 'int main()' to be functional
-runner: $(O) $(BONUS_O)
-	$(CC) $(CFLAGS) -o $(RUNNER) $(O) $(BONUS_O)
+# runner: $(O) $(BONUS_O)
+# 	$(CC) $(CFLAGS) -o $(RUNNER) $(O) $(BONUS_O)
 
 %.o : %.c $(H)
 	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<))
