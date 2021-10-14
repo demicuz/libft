@@ -39,10 +39,10 @@ char	*ft_itoa(int n)
 	result = malloc(sizeof(char) * (n_digits + is_negative + 1));
 	if (!result)
 		return (NULL);
-	result[n_digits + is_negative] = '\0';
 	if (is_negative)
 		result[0] = '-';
 	i = n_digits - 1 + is_negative;
+	result[i + 1] = '\0';
 	while (i >= is_negative)
 	{
 		if (is_negative)
