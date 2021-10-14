@@ -27,7 +27,6 @@ static int	ft_count_digits(int n)
 	return (count);
 }
 
-// TODO somehow it crashes on Ubuntu with libftTester
 char	*ft_itoa(int n)
 {
 	int		n_digits;
@@ -40,7 +39,7 @@ char	*ft_itoa(int n)
 	result = malloc(sizeof(char) * (n_digits + is_negative + 1));
 	if (!result)
 		return (NULL);
-	result[n_digits] = '\0';
+	result[n_digits + is_negative] = '\0';
 	if (is_negative)
 		result[0] = '-';
 	i = n_digits - 1 + is_negative;
