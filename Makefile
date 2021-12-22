@@ -30,10 +30,10 @@ $(NAME): $(O) $(if $(findstring bonus, $(MAKECMDGOALS)), $(BONUS_O))
 
 # needs to have 'int main()' to be functional
 runner: $(O) $(BONUS_O)
-	@$(CC) $(CFLAGS) -o $(RUNNER) $(O) $(BONUS_O)
+	$(CC) $(CFLAGS) -o $(RUNNER) $(O) $(BONUS_O)
 
 %.o : %.c $(H)
-	@$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<))
+	$(CC) $(CFLAGS) -c $< -o $(addsuffix .o, $(basename $<))
 
 clean:
 	$(RM) $(O) $(BONUS_O)
