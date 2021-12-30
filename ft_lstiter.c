@@ -10,23 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list	*current;
-	t_list	*prev;
-
-	current = *lst;
-	prev = current;
-	while (current)
+	if (!lst)
+		return ;
+	while (lst)
 	{
-		if (current->content)
-			del(current->content);
-		current = current->next;
-		free(prev);
-		prev = current;
+		(*f)(lst->data);
+		lst = lst->next;
 	}
-	*lst = NULL;
 }

@@ -10,14 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+t_list	*ft_lstnew(void *data)
 {
-	size_t	len;
+	t_list	*foo;
 
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
+	foo = malloc(sizeof(t_list));
+	if (!foo)
+		return (NULL);
+	foo->data = data;
+	foo->next = NULL;
+	return (foo);
 }

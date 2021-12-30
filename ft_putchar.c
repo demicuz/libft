@@ -10,15 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_putchar(char c)
 {
-	if (!lst)
-		return ;
-	while (lst)
-	{
-		(*f)(lst->content);
-		lst = lst->next;
-	}
+	write(1, &c, 1);
 }

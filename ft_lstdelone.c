@@ -10,14 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	write(fd, s, len);
+	if (lst)
+	{
+		if (lst->data)
+			del(lst->data);
+		free(lst);
+	}
 }
