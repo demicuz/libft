@@ -10,21 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <libft.h>
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+static char	*ft_strcpy(char *dest, const char *src)
 {
-	t_list	*p;
+	char	*temp;
 
-	if (!new || !lst)
-		return ;
-	if (!*lst)
+	temp = dest;
+	while (*src)
 	{
-		*lst = new;
-		return ;
+		*dest = *src;
+		dest++;
+		src++;
 	}
-	p = *lst;
-	while (p->next)
-		p = p->next;
-	p->next = new;
+	*dest = '\0';
+	return (temp);
+}
+
+char	*ft_strdup(const char *src)
+{
+	char	*result;
+
+	result = malloc(sizeof(char) * (ft_strlen(src) + 1));
+	if (result)
+		result = ft_strcpy(result, src);
+	return (result);
 }

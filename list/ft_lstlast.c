@@ -10,24 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putnbr(int nb)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (nb >= 0 && nb <= 9)
-		ft_putchar('0' + nb);
-	else if (nb < 0)
-	{
-		ft_putchar('-');
-		if (nb <= -10)
-			ft_putnbr(-(nb / 10));
-		ft_putnbr(-(nb % 10));
-	}
-	else
-	{
-		if (nb >= 10)
-			ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
+	if (!lst)
+		return ((void *) 0);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

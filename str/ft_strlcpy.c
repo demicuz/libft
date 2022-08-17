@@ -10,26 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <stdlib.h>
+#include <libft.h>
 
-void	ft_putnbr_fd(int n, int fd)
+// Copy `src` to `dst`. The resulting string is null-terminated.
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	if (n >= 0 && n <= 9)
+	const char	*src_start;
+
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	src_start = src;
+	while (*src && dstsize - 1)
 	{
-		ft_putchar_fd('0' + n, fd);
+		*dst = *src;
+		dst++;
+		src++;
+		dstsize--;
 	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		if (n <= -10)
-			ft_putnbr_fd(-(n / 10), fd);
-		ft_putnbr_fd(-(n % 10), fd);
-	}
-	else
-	{
-		if (n >= 10)
-			ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
+	*dst = '\0';
+	return (ft_strlen(src_start));
 }

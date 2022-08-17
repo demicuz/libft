@@ -11,39 +11,25 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
-static size_t	min(size_t a, size_t b)
+// Like ft_striteri, but creates a new string. Assumes `s` is a valid string.
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	if (a < b)
-		return (a);
-	else
-		return (b);
-}
+	char			*result;
+	char			*p;
+	unsigned int	i;
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	s_len;
-	size_t	sub_len;
-	char	*sub;
-	char	*p;
-
-	s_len = ft_strlen(s);
-	if (s_len <= start)
-		return (ft_strdup(""));
-	sub_len = min(len, s_len - start);
-	sub = malloc(sizeof(char) * (sub_len + 1));
-	if (!sub)
+	result = ft_strdup(s);
+	if (!result)
 		return (NULL);
-	p = sub;
-	s += start;
-	while (sub_len)
+	i = 0;
+	p = result;
+	while (*p)
 	{
-		*p = *s;
+		*p = f(i, *p);
 		p++;
-		s++;
-		sub_len--;
+		i++;
 	}
-	*p = '\0';
-	return (sub);
+	return (result);
 }

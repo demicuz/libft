@@ -11,24 +11,49 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+static int	ft_in(char const *set, char c)
 {
-	t_list	*current;
-	t_list	*prev;
+	if (!c)
+		return (0);
+	while (*set && *set != c)
+		set++;
+	return (*set == c);
+}
 
-	if (!lst)
-		return ;
-	current = *lst;
-	prev = current;
-	while (current)
+static char	*ft_strndup_simple(const char *src, size_t len)
+{
+	char	*result;
+	char	*p;
+
+	result = malloc(sizeof(char) * (len + 1));
+	if (!result)
+		return (NULL);
+	p = result;
+	while (len)
 	{
-		if (current->data)
-			del(current->data);
-		current = current->next;
-		free(prev);
-		prev = current;
+		*p = *src;
+		p++;
+		src++;
+		len--;
 	}
-	*lst = NULL;
+	*p = '\0';
+	return (result);
+}
+
+// Trim `s1`, but instead of space chars use chars from `set`.
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	char const	*start;
+
+	while (*s1 && ft_in(set, *s1))
+		s1++;
+	if (*s1 == '\0')
+		return (ft_strndup_simple("", 0));
+	start = s1;
+	while (*s1)
+		s1++;
+	while (ft_in(set, s1[-1]) && s1 > start)
+		s1--;
+	return (ft_strndup_simple(start, s1 - start));
 }

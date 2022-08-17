@@ -12,21 +12,27 @@
 
 #include <stdlib.h>
 
-void	*ft_memchr(const void *s, int c, size_t n)
+// Should be faster than ft_memcpy? I don't really know. Maybe it makes more
+// sense to use 64 bits instead (unsigned long). See:
+// https://stackoverflow.com/questions/17591624
+void	*ft_memcpy_int(void *dest, const void *src, size_t n)
 {
-	const unsigned char	*p;
+	unsigned int	*d;
+	unsigned int	*s;
 
-	p = s;
-	c &= 0b11111111;
-	if (n == 0)
+	if (!dest && !src)
 		return (NULL);
-	while (*p != c && n - 1)
+	else if (dest != src)
 	{
-		p++;
-		n--;
+		d = dest;
+		s = (unsigned int *)src;
+		while (n)
+		{
+			*d = *s;
+			d++;
+			s++;
+			n -= 4;
+		}
 	}
-	if (*p != c)
-		return (NULL);
-	else
-		return ((void *) p);
+	return (dest);
 }

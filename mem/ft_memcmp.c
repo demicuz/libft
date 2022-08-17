@@ -11,14 +11,22 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+// Compare `s1` and `s2` for first `n` bytes
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	if (lst)
+	const unsigned char	*p1;
+	const unsigned char	*p2;
+
+	if (n == 0)
+		return (0);
+	p1 = s1;
+	p2 = s2;
+	while ((*p1 == *p2) && n - 1)
 	{
-		if (lst->data)
-			del(lst->data);
-		free(lst);
+		p1++;
+		p2++;
+		n--;
 	}
+	return (*p1 - *p2);
 }

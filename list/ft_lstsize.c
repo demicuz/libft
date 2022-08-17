@@ -10,26 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
-// Assumes *s is a valid string
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_lstsize(t_list *lst)
 {
-	char			*result;
-	char			*p;
-	unsigned int	i;
+	int	size;
 
-	result = ft_strdup(s);
-	if (!result)
-		return (NULL);
-	i = 0;
-	p = result;
-	while (*p)
+	if (!lst)
+		return (0);
+	size = 1;
+	while (lst->next)
 	{
-		*p = f(i, *p);
-		p++;
-		i++;
+		lst = lst->next;
+		size++;
 	}
-	return (result);
+	return (size);
 }

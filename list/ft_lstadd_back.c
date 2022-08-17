@@ -10,19 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int	size;
+	t_list	*p;
 
-	if (!lst)
-		return (0);
-	size = 1;
-	while (lst->next)
+	if (!new || !lst)
+		return ;
+	if (!*lst)
 	{
-		lst = lst->next;
-		size++;
+		*lst = new;
+		return ;
 	}
-	return (size);
+	p = *lst;
+	while (p->next)
+		p = p->next;
+	p->next = new;
 }

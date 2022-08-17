@@ -11,29 +11,14 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
+#include <libft.h>
 
-static char	*ft_strcpy(char *dest, const char *src)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*temp;
-
-	temp = dest;
-	while (*src)
+	if (lst)
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		if (lst->data)
+			del(lst->data);
+		free(lst);
 	}
-	*dest = '\0';
-	return (temp);
-}
-
-char	*ft_strdup(const char *src)
-{
-	char	*result;
-
-	result = malloc(sizeof(char) * (ft_strlen(src) + 1));
-	if (result)
-		result = ft_strcpy(result, src);
-	return (result);
 }

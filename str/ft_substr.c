@@ -10,15 +10,42 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <libft.h>
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+static size_t	min(size_t a, size_t b)
 {
-	if (!lst)
-		return ;
-	while (lst)
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+// Creates a substring of `s` of the maximum length `len`, starting from index
+// `start`.
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	s_len;
+	size_t	sub_len;
+	char	*sub;
+	char	*p;
+
+	s_len = ft_strlen(s);
+	if (s_len <= start)
+		return (ft_strdup(""));
+	sub_len = min(len, s_len - start);
+	sub = malloc(sizeof(char) * (sub_len + 1));
+	if (!sub)
+		return (NULL);
+	p = sub;
+	s += start;
+	while (sub_len)
 	{
-		(*f)(lst->data);
-		lst = lst->next;
+		*p = *s;
+		p++;
+		s++;
+		sub_len--;
 	}
+	*p = '\0';
+	return (sub);
 }

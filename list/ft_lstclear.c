@@ -10,15 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include <stdlib.h>
+#include <libft.h>
 
-void	ft_putstr(const char *str)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	size_t	len;
+	t_list	*current;
+	t_list	*prev;
 
-	len = 0;
-	while (str[len])
-		len++;
-	write(1, str, len);
+	if (!lst)
+		return ;
+	current = *lst;
+	prev = current;
+	while (current)
+	{
+		if (current->data)
+			del(current->data);
+		current = current->next;
+		free(prev);
+		prev = current;
+	}
+	*lst = NULL;
 }

@@ -11,25 +11,16 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
-void	*ft_memcpy_int(void *dest, const void *src, size_t n)
+t_list	*ft_lstnew(void *data)
 {
-	unsigned int	*d;
-	unsigned int	*s;
+	t_list	*foo;
 
-	if (!dest && !src)
+	foo = malloc(sizeof(t_list));
+	if (!foo)
 		return (NULL);
-	else if (dest != src)
-	{
-		d = dest;
-		s = (unsigned int *)src;
-		while (n)
-		{
-			*d = *s;
-			d++;
-			s++;
-			n -= 4;
-		}
-	}
-	return (dest);
+	foo->data = data;
+	foo->next = NULL;
+	return (foo);
 }

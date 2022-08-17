@@ -10,23 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include "libft.h"
+#include <unistd.h>
+#include <libft.h>
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putstr(const char *str)
 {
-	const char	*src_start;
+	size_t	len;
 
-	if (dstsize == 0)
-		return (ft_strlen(src));
-	src_start = src;
-	while (*src && dstsize - 1)
-	{
-		*dst = *src;
-		dst++;
-		src++;
-		dstsize--;
-	}
-	*dst = '\0';
-	return (ft_strlen(src_start));
+	len = 0;
+	while (str[len])
+		len++;
+	write(1, str, len);
 }

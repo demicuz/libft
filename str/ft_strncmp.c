@@ -12,33 +12,16 @@
 
 #include <stdlib.h>
 
-char	*ft_strchr(const char *s, int c)
+// Compare only first `n` chars of `s1` and `s2`.
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	c &= 0b11111111;
-	while (*s && *s != c)
-		s++;
-	if (*s == c)
-		return ((char *) s);
-	else
-		return (NULL);
+	if (n == 0)
+		return (0);
+	while (*s1 && (*s1 == *s2) && n - 1)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return ((unsigned char) *s1 - (unsigned char) *s2);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int main(void)
-// {
-// 	char s[] = "hello world";
-// 	int c = '&';
-
-// 	char *r = strchr(s, c);
-// 	char *r2 = ft_strchr(s, c);
-// 	// char *r2 = r;
-// 	if (r)
-// 		printf("%c\n", *r);
-// 	else
-// 		puts("nullptr");
-
-// 	if (r2)
-// 		printf("%c\n", *r2);
-// 	else
-// 		puts("nullptr");
-// }

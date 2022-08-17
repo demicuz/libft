@@ -10,49 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stdio.h>
+#include <libft.h>
 
-static int	ft_in(char const *set, char c)
+// We won't ever know if f() has succeeded or not. E.g. if it returns NULL,
+// we will create a list with content == NULL and that's like... Fine.
+// Also the original list is not protected from the side effects of f().
+// We can change the original content with it. That's a bad thing.
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (!c)
-		return (0);
-	while (*set && *set != c)
-		set++;
-	return (*set == c);
-}
+	t_list	*new_list;
+	t_list	*c_elem;
+	t_list	*p_elem;
 
-static char	*ft_strndup_simple(const char *src, size_t len)
-{
-	char	*result;
-	char	*p;
-
-	result = malloc(sizeof(char) * (len + 1));
-	if (!result)
+	if (!lst)
 		return (NULL);
-	p = result;
-	while (len)
+	new_list = ft_lstnew(f(lst->data));
+	lst = lst->next;
+	c_elem = new_list;
+	while (lst)
 	{
-		*p = *src;
-		p++;
-		src++;
-		len--;
+		p_elem = c_elem;
+		c_elem = ft_lstnew(f(lst->data));
+		if (!c_elem)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		p_elem->next = c_elem;
+		lst = lst->next;
 	}
-	*p = '\0';
-	return (result);
-}
-
-char	*ft_strtrim(char const *s1, char const *set)
-{
-	char const	*start;
-
-	while (*s1 && ft_in(set, *s1))
-		s1++;
-	if (*s1 == '\0')
-		return (ft_strndup_simple("", 0));
-	start = s1;
-	while (*s1)
-		s1++;
-	while (ft_in(set, s1[-1]) && s1 > start)
-		s1--;
-	return (ft_strndup_simple(start, s1 - start));
+	return (new_list);
 }

@@ -11,39 +11,36 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
-static void	ft_just_cpy(char *dest, const char *src, size_t n)
+static char	*ft_strcpy_end(char *dest, const char *src)
 {
-	while (n)
+	while (*src)
 	{
 		*dest = *src;
 		dest++;
 		src++;
-		n--;
-	}
-}
-
-void	*ft_memmove(void *dest, const void *src, size_t n)
-{
-	char	*d;
-	char	*s;
-
-	if (!dest && !src)
-		return (NULL);
-	else if (dest != src)
-	{
-		d = dest;
-		s = (char *) src;
-		if (src < dest)
-		{
-			while (n)
-			{
-				n--;
-				d[n] = s[n];
-			}
-		}
-		else
-			ft_just_cpy(dest, src, n);
 	}
 	return (dest);
+}
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	size_t	len;
+	char	*r;
+	char	*p;
+
+	len = ft_strlen(s1) + ft_strlen(s2);
+	r = malloc(sizeof(char) * (len + 1));
+	if (!r)
+		return (NULL);
+	p = ft_strcpy_end(r, s1);
+	while (*s2)
+	{
+		*p = *s2;
+		p++;
+		s2++;
+	}
+	*p = '\0';
+	return (r);
 }

@@ -11,36 +11,23 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include "libft.h"
 
-static char	*ft_strcpy_end(char *dest, const char *src)
+// Search for first `n` bytes for byte `c` in `s`
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	while (*src)
-	{
-		*dest = *src;
-		dest++;
-		src++;
-	}
-	return (dest);
-}
+	const unsigned char	*p;
 
-char	*ft_strjoin(char const *s1, char const *s2)
-{
-	size_t	len;
-	char	*r;
-	char	*p;
-
-	len = ft_strlen(s1) + ft_strlen(s2);
-	r = malloc(sizeof(char) * (len + 1));
-	if (!r)
+	p = s;
+	c &= 0b11111111;
+	if (n == 0)
 		return (NULL);
-	p = ft_strcpy_end(r, s1);
-	while (*s2)
+	while (*p != c && n - 1)
 	{
-		*p = *s2;
 		p++;
-		s2++;
+		n--;
 	}
-	*p = '\0';
-	return (r);
+	if (*p != c)
+		return (NULL);
+	else
+		return ((void *) p);
 }

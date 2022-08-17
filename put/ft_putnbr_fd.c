@@ -10,17 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
+#include <libft.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == 0)
-		return (0);
-	while (*s1 && (*s1 == *s2) && n - 1)
+	if (n >= 0 && n <= 9)
 	{
-		s1++;
-		s2++;
-		n--;
+		ft_putchar_fd('0' + n, fd);
 	}
-	return ((unsigned char) *s1 - (unsigned char) *s2);
+	else if (n < 0)
+	{
+		ft_putchar_fd('-', fd);
+		if (n <= -10)
+			ft_putnbr_fd(-(n / 10), fd);
+		ft_putnbr_fd(-(n % 10), fd);
+	}
+	else
+	{
+		if (n >= 10)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
 }
