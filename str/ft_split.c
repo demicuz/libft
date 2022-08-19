@@ -1,51 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2000/01/01 20:20:20 by psharen          ###   ########.fr       */
+/*   Created: 2022/08/19 05:19:12 by psharen           #+#    #+#             */
+/*   Updated: 2022/08/19 15:41:37 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdbool.h>
 #include <libft.h>
 
-static size_t	ft_count_words(char const *s, char c)
+static size_t	ft_count_words(char const *s, char const *spaces)
 {
 	size_t	words;
-	char	in_word;
+	bool	in_word;
 
-	if (c == '\0')
+	if (*spaces == '\0')
 		return (*s != '\0');
 	words = 0;
 	in_word = 0;
 	while (*s)
 	{
-		if (!in_word && *s != c)
+		if (!in_word && !ft_strchr(spaces, *s))
 		{
-			in_word = 1;
+			in_word = true;
 			words++;
 		}
-		else if (in_word && *s == c)
-			in_word = 0;
+		else if (in_word && ft_strchr(spaces, *s))
+			in_word = false;
 		s++;
 	}
 	return (words);
 }
 
 // absolutely wicked. moves *s, puts a word in *p.
-static void	ft_put_word(char **p, char **s, char c)
+static void	ft_put_word(char **p, char **s, char const *spaces)
 {
 	char	*word_start;
 	size_t	word_len;
 
-	while (**s == c)
+	while (ft_strchr(spaces, **s))
 		(*s)++;
 	word_start = *s;
-	while (**s && **s != c)
+	while (**s && !ft_strchr(spaces, **s))
 		(*s)++;
 	word_len = *s - word_start;
 	*p = malloc(sizeof(char) * (word_len + 1));
@@ -67,22 +68,22 @@ static void	ft_free_all(char **words)
 	free(words);
 }
 
-// "__hello__world__", '_' --> {"hello", "world", NULL}
-// "hello", '\0' --> {"hello", NULL}
-char	**ft_split(char const *s, char c)
+// "  hello ,\t world  ", ", \t" --> {"hello", "world", NULL}
+// "hello", "\0" --> {"hello", NULL}
+char	**ft_split(char const *s, char const *spaces)
 {
 	size_t	word_count;
 	char	**result;
 	char	**p;
 
-	word_count = ft_count_words(s, c);
+	word_count = ft_count_words(s, spaces);
 	result = ft_calloc(word_count + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
 	p = result;
 	while (word_count)
 	{
-		ft_put_word(p, (char **) &s, c);
+		ft_put_word(p, (char **) &s, spaces);
 		if (!*p)
 		{
 			ft_free_all(result);
