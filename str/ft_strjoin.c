@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:53 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:48:33 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static char	*ft_strcpy_end(char *dest, const char *src)
 	return (dest);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, const char *s2)
 {
 	size_t	len;
 	char	*r;

@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 
-static int	ft_in(char const *set, char c)
+static int	ft_in(const char *set, char c)
 {
 	if (!c)
 		return (0);
@@ -42,9 +42,9 @@ static char	*ft_strndup_simple(const char *src, size_t len)
 }
 
 // Trim `s1`, but instead of space chars use chars from `set`.
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
-	char const	*start;
+	const char	*start;
 
 	while (*s1 && ft_in(set, *s1))
 		s1++;

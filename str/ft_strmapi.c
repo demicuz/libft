@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:56 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:48:34 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <libft.h>
 
 // Like ft_striteri, but creates a new string. Assumes `s` is a valid string.
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
 	char			*result;
 	char			*p;

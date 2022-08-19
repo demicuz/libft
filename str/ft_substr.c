@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:47:01 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:48:33 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static size_t	min(size_t a, size_t b)
 
 // Creates a substring of `s` of the maximum length `len`, starting from index
 // `start`.
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	size_t	s_len;
 	size_t	sub_len;

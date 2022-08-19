@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 05:19:12 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:47 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/19 15:48:33 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdbool.h>
 #include <libft.h>
 
-static size_t	ft_count_words(char const *s, char const *spaces)
+static size_t	ft_count_words(const char *s, const char *spaces)
 {
 	size_t	words;
 	bool	in_word;
@@ -38,7 +38,7 @@ static size_t	ft_count_words(char const *s, char const *spaces)
 }
 
 // absolutely wicked. moves *s, puts a word in *p.
-static void	ft_put_word(char **p, char **s, char const *spaces)
+static void	ft_put_word(char **p, char **s, const char *spaces)
 {
 	char	*word_start;
 	size_t	word_len;
@@ -70,7 +70,7 @@ static void	ft_free_all(char **words)
 
 // "  hello ,\t world  ", ", \t" --> {"hello", "world", NULL}
 // "hello", "\0" --> {"hello", NULL}
-char	**ft_split(char const *s, char const *spaces)
+char	**ft_split(const char *s, const char *spaces)
 {
 	size_t	word_count;
 	char	**result;
