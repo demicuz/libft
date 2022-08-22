@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:48:33 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/22 08:55:27 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ typedef struct s_list
 	void			*data;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_tree
+{
+	void			*data;
+	struct s_tree	*left;
+	struct s_tree	*right;
+}	t_tree;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -76,5 +83,8 @@ void	ft_putstr(const char *str);
 void	ft_putnbr(int nb);
 int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_memcpy_int(void *dest, const void *src, size_t n);
+
+t_tree	*ft_bintree(void *data);
+char	*ft_substr_between(const char *start, const char *end);
 
 #endif
