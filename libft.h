@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/22 08:55:27 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/23 17:28:35 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstreverse(t_list **lst);
 
 void	ft_putchar(char c);
 void	ft_putstr(const char *str);
