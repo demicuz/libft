@@ -6,7 +6,7 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:19 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/20 11:06:59 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 t_list	*ft_lstnew(void *data)
 {
-	t_list	*foo;
+	t_list	*lst;
 
-	foo = malloc(sizeof(t_list));
-	if (!foo)
+	lst = malloc(sizeof(t_list));
+	if (!lst)
 		return (NULL);
-	foo->data = data;
-	foo->next = NULL;
-	return (foo);
+	lst->data = data;
+	lst->next = NULL;
+	return (lst);
 }
