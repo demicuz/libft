@@ -6,13 +6,14 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:49 by psharen          ###   ########.fr       */
+/*   Updated: 2022/08/24 08:45:47 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-// Search for char `c` in `s` and return a pointer to it, or NULL if not found
+// Search for char `c` in `s` and return a pointer to it, or NULL if not found.
+// BEWARE that if c is '\0', it will return a pointer to the end of *s.
 char	*ft_strchr(const char *s, int c)
 {
 	c &= 0b11111111;
