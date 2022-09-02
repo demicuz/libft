@@ -6,11 +6,12 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:47:00 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:37:43 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
 static int	ft_in(const char *set, char c)
 {

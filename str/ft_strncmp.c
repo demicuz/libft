@@ -6,11 +6,12 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:57 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:37:38 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
 // Compare only first `n` chars of `s1` and `s2`.
 int	ft_strncmp(const char *s1, const char *s2, size_t n)

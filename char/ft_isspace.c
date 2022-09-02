@@ -6,9 +6,11 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 04:58:00 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:10 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:35:59 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <libft.h>
 
 int	ft_isspace(char c)
 {

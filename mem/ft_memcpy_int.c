@@ -6,11 +6,12 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:28 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:36:45 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
 // Should be faster than ft_memcpy? I don't really know. Maybe it makes more
 // sense to use 64 bits instead (unsigned long). See:

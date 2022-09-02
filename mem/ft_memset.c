@@ -6,18 +6,18 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:31 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:42:14 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <libft.h>
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *s, char c, size_t n)
 {
 	char	*p;
 
 	p = s;
-	c &= 0b11111111;
 	while (n)
 	{
 		*p = c;

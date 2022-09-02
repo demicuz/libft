@@ -6,13 +6,15 @@
 /*   By: psharen <psharen@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2000/01/01 20:20:20 by psharen           #+#    #+#             */
-/*   Updated: 2022/08/19 15:46:12 by psharen          ###   ########.fr       */
+/*   Updated: 2022/09/02 13:54:59 by psharen          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+#include <libft.h>
+
+char	ft_toupper(char c)
 {
 	if (c >= 'a' && c <= 'z')
-		return (c + 'A' - 'a');
+		return (c + ('A' - 'a'));
 	return (c);
 }
